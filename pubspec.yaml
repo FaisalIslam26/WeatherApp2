@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_glow: ^0.2.0
   font_awesome_flutter: ^9.2.0
+  http: ^0.13.4
+  intl: ^0.17.0-nullsafety.2
 
 dev_dependencies:
   flutter_test:
