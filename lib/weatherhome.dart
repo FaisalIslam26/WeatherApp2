@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:weatherapp2/sevendaysweather.dart';
 
 import 'custom widget/todayweather.dart';
 
@@ -291,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 10, left: 10),
+            padding: const EdgeInsets.only(top: 30, left: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -305,9 +306,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       "7days",
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
+                    InkWell(
+                      onTap: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => SevendaysWeather()));
+                      }),
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                      ),
                     )
                   ],
                 ),
