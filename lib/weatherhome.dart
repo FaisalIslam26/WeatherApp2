@@ -76,9 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
       ),
       body: FutureBuilder(
+          future: getWeather(),
           initialData: cache,
-          builder: (context, AsyncSnapshot) {
-            weatherData = AsyncSnapshot.data as Map<String, dynamic>;
+          builder: (context, Snapshot) {
+            weatherData = Snapshot.data as Map<String, dynamic>;
             return Column(
               children: [
                 Stack(
@@ -313,22 +314,26 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "7days",
-                            style: TextStyle(color: Colors.white, fontSize: 14),
-                          ),
-                          InkWell(
-                            onTap: (() {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => SevendaysWeather()));
-                            }),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.white,
-                            ),
-                          )
+                          TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => SevendaysWeather()));
+                              },
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "7days",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 14),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ))
                         ],
                       ),
                     ],

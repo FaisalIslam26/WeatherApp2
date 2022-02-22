@@ -73,6 +73,7 @@ class _TodaysWeatherState extends State<TodaysWeather> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
+        future: getWeather(),
         initialData: cache,
         builder: (context, AsyncSnapshot) {
           weatherData = AsyncSnapshot.data as Map<String, dynamic>;

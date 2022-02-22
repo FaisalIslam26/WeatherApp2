@@ -105,9 +105,10 @@ class _SevendaysWeatherState extends State<SevendaysWeather> {
         ],
       ),
       body: FutureBuilder(
+          future: getWeather(),
           initialData: cache,
-          builder: (context, AsyncSnapshot) {
-            weatherData = AsyncSnapshot.data as Map<String, dynamic>;
+          builder: (context, Snapshot) {
+            weatherData = Snapshot.data as Map<String, dynamic>;
             return Column(children: [
               Container(
                 height: 400,
